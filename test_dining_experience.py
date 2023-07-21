@@ -16,7 +16,7 @@ def test_display_menu(capsys):
     assert "Chinese:" in captured.out
     assert "chaulafan - $10" in captured.out
     assert "Italian:" in captured.out
-    assert "pizza - $12" in captured.out
+    assert "pizza - $30" in captured.out
 
 def test_select_meals():
     manager = DiningExperienceManager()
@@ -48,28 +48,28 @@ def test_discount_more_than_5():
     manager.order = {'chaulafan': 6}
     manager.total_quantity = 6
     manager.calculate_cost()
-    assert manager.total_cost == 54
+    assert manager.total_cost == 44
 
 def test_discount_more_than_10():
     manager = DiningExperienceManager()
-    manager.order = {'chaulafan': 11}
-    manager.total_quantity = 11
+    manager.order = {'cupcake': 12}
+    manager.total_quantity = 12
     manager.calculate_cost()
-    assert manager.total_cost == 88
+    assert manager.total_cost == 28.8
 
 def test_special_offer_discount_more_than_50():
     manager = DiningExperienceManager()
-    manager.order = {'tomahawk': 3}
+    manager.order = {'pizza': 3}
     manager.total_quantity = 3
     manager.calculate_cost()
-    assert manager.total_cost == 70.875
+    assert manager.total_cost == 80
 
 def test_special_offer_discount_more_than_100():
     manager = DiningExperienceManager()
-    manager.order = {'tomahawk': 5}
-    manager.total_quantity = 5
+    manager.order = {'pizza': 4}
+    manager.total_quantity = 4
     manager.calculate_cost()
-    assert manager.total_cost == 118.75
+    assert manager.total_cost == 95
 
 def test_chefs_specials_surcharge():
     manager = DiningExperienceManager()

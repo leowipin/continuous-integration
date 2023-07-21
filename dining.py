@@ -2,7 +2,7 @@ class DiningExperienceManager:
     def __init__(self):
         self.menu = {
             'Chinese': {'chaulafan': 10, 'wantang': 8},
-            'Italian': {'pizza': 12, 'fetuccini': 10},
+            'Italian': {'pizza': 30, 'fetuccini': 10},
             'Pastries': {'cupcake': 3, 'cheesecake': 4},
             'Chef\'s Specials': {'tomahawk': 25, 'bife': 30}
         }
