@@ -6,7 +6,6 @@ class DiningExperienceManager:
             'Pastries': {'cupcake': 3, 'cheesecake': 4},
             'Chef\'s Specials': {'tomahawk': 25, 'bife': 30}
         }
-        self.order = {}
         self.total_cost = 0
         self.total_quantity = 0
 
@@ -70,18 +69,18 @@ class DiningExperienceManager:
             elif confirm == 'n':
                 return False
 
-    def run(self):
+    def run(self, input_function=input):
         while True:
             self.display_menu()
-            self.select_meals()
+            self.select_meals(input_function)
             if not self.order:
                 return -1
             self.calculate_cost()
-            if not self.confirm_order():
+            if not self.confirm_order(input_function):
                 return -1
             return int(self.total_cost)
         
 def mock_input(inputs):
     def input(prompt):
         return inputs.pop(0)
-    return input    
+    return input
